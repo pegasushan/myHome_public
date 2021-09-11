@@ -1,11 +1,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>insert title here</title>
 </head>
+<div id="nav">
+ <%@ include file="../include/nav.jsp" %>
+</div>
 <body>
 	<table>
 	 <thead>
@@ -21,9 +25,9 @@
 	 <tbody>
 	  	<c:forEach items="${list}" var="list">
 		 <tr>
-		  <td>${list.bno}</td>
+		  <td><a href="/board/view?bno=${list.bno}">${list.title}</a></td>
 		  <td>${list.title}</td>
-		  <td>${list.regDate}</td>
+		  <td><fmt:formatDate value="${list.regDate}" pattern="yyyy-MM-dd"/></td>
 		  <td>${list.writer}</td>
 		  <td>${list.viewCnt}</td>
 		 </tr>
